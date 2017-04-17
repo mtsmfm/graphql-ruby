@@ -30,7 +30,7 @@ module GraphQL
     attr_reader :schema, :document, :context, :fragments, :operations, :root_value, :query_string, :warden, :provided_variables
 
     # @return [String, nil] the triggered event, if this query is a subscription update
-    attr_reader :subscription_name
+    attr_reader :subscription_key
 
     # @return [String, nil]
     attr_reader :operation_name
@@ -46,13 +46,13 @@ module GraphQL
     # @param max_complexity [Numeric] the maximum field complexity for this query (falls back to schema-level value)
     # @param except [<#call(schema_member, context)>] If provided, objects will be hidden from the schema when `.call(schema_member, context)` returns truthy
     # @param only [<#call(schema_member, context)>] If provided, objects will be hidden from the schema when `.call(schema_member, context)` returns false
-    def initialize(schema, query_string = nil, query: nil, document: nil, context: nil, variables: {}, validate: true, subscription_name: nil, operation_name: nil, root_value: nil, max_depth: nil, max_complexity: nil, except: nil, only: nil)
+    def initialize(schema, query_string = nil, query: nil, document: nil, context: nil, variables: {}, validate: true, subscription_key: nil, operation_name: nil, root_value: nil, max_depth: nil, max_complexity: nil, except: nil, only: nil)
       if !(query_string || document || query)
         fail ArgumentError, "a query string or document is required"
       end
 
       @schema = schema
-      @subscription_name = subscription_name
+      @subscription_key = subscription_key
       mask = GraphQL::Schema::Mask.combine(schema.default_mask, except: except, only: only)
       @context = Context.new(query: self, values: context)
       @warden = GraphQL::Schema::Warden.new(mask, schema: @schema, context: @context)
@@ -115,6 +115,10 @@ module GraphQL
 
       @result = nil
       @executed = false
+    end
+
+    def subscription_update?
+      @subscription && @subscription_key
     end
 
     # @api private
