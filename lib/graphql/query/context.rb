@@ -5,6 +5,7 @@ module GraphQL
     # It delegates `[]` to the hash that's passed to `GraphQL::Query#initialize`.
     class Context
       extend Forwardable
+
       attr_reader :execution_strategy
       # `strategy` is required by GraphQL::Batch
       alias_method :strategy, :execution_strategy
@@ -58,6 +59,7 @@ module GraphQL
       # @!method []=(key, value)
       #   Reassign `key` to the hash passed to {Schema#execute} as `context:`
 
+
       # @return [GraphQL::Schema::Warden]
       def warden
         @warden ||= @query.warden
@@ -100,9 +102,9 @@ module GraphQL
         end
 
         def_delegators :@context,
-          :[], :[]=, :key?, :fetch, :to_h, :namespace,
-          :spawn, :query, :schema, :warden, :errors,
-          :execution_strategy, :strategy, :skip
+          :[], :[]=, :to_h, :key?, :fetch, :namespace,
+          :spawn, :query, :schema,
+          :warden, :errors, :execution_strategy, :strategy, :skip
 
         # @return [GraphQL::Language::Nodes::Field] The AST node for the currently-executing field
         def ast_node
