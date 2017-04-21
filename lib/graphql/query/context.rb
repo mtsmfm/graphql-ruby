@@ -104,7 +104,8 @@ module GraphQL
         def_delegators :@context,
           :[], :[]=, :to_h, :key?, :fetch, :namespace,
           :spawn, :query, :schema,
-          :warden, :errors, :execution_strategy, :strategy, :skip
+          :warden, :errors, :execution_strategy, :strategy,
+          :skip
 
         # @return [GraphQL::Language::Nodes::Field] The AST node for the currently-executing field
         def ast_node
