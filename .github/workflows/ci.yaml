@@ -64,5 +64,6 @@ jobs:
         with:
           branch: another-branch
           name: test-result-another-branch
+          workflow: ci.yaml
       - run: bundle exec rake test
       - run: echo ${{ matrix.parallel }} > test/reports/${{ matrix.parallel }}.xml
