@@ -11,11 +11,6 @@ jobs:
           ruby-version: 2.6
           bundler-cache: true
       - run: bundle exec rake rubocop
-      - uses: actions/upload-artifact@v2
-        with:
-          name: test-result
-          path: test/reports
-          if-no-files-found: error
   system_tests:
     runs-on: ubuntu-latest
     steps:
@@ -66,3 +61,8 @@ jobs:
           bundler: ${{ matrix.bundler || 'default' }}
       - run: bundle exec rake test
       - run: echo ${{ matrix.parallel }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: test-result
+          path: test/reports
+          if-no-files-found: error
