@@ -59,9 +59,10 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
           bundler: ${{ matrix.bundler || 'default' }}
-      - uses: actions/download-artifact@v2
+      - name: Download artifact
+        uses: dawidd6/action-download-artifact@v2
         with:
+          branch: another-branch
           name: test-result-another-branch
-          path: test/reports
       - run: bundle exec rake test
       - run: echo ${{ matrix.parallel }} > test/reports/${{ matrix.parallel }}.xml
