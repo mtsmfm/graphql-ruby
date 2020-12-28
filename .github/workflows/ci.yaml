@@ -63,6 +63,6 @@ jobs:
       - run: echo ${{ matrix.parallel }} > test/reports/${{ matrix.parallel }}.xml
       - uses: actions/upload-artifact@v2
         with:
-          name: test-result
+          name: test-result-${{ github.ref }}
           path: test/reports
           if-no-files-found: error
