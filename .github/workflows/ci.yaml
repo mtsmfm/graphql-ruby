@@ -59,10 +59,9 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
           bundler: ${{ matrix.bundler || 'default' }}
+      - uses: actions/download-artifact@v2
+        with:
+          name: test-result-another-branch
+          path: test/reports
       - run: bundle exec rake test
       - run: echo ${{ matrix.parallel }} > test/reports/${{ matrix.parallel }}.xml
-      - uses: actions/upload-artifact@v2
-        with:
-          name: test-result-${{ github.ref }}
-          path: test/reports
-          if-no-files-found: error
