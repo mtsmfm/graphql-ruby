@@ -2,191 +2,149 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>GraphQL Ruby - Schema — Generators</title>
-    <link rel="stylesheet" href="/graphql-ruby/css/main.css">
-    <link rel="icon" href="/graphql-ruby/graphql-ruby-icon.png">
-    <meta name="generator">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+      <title>GraphQL - Generators</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="icon" href="/graphql-ruby-icon.png">
   </head>
-  <body class="hack">
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-19264608-11', 'auto');
-      ga('send', 'pageview');
-    </script>
-    <div class="container">
-      <div style="display: flex; justify-content: center;">
-<strong style="white-space: pre; line-height: 1.1em; display: inline-block; font-size: 8px;">
-    ▄██████▄     ▄████████    ▄████████    ▄███████▄    ▄█    █▄    ████████▄    ▄█
-   ███    ███   ███    ███   ███    ███   ███    ███   ███    ███   ███    ███  ███
-   ███    █▀    ███    ███   ███    ███   ███    ███   ███    ███   ███    ███  ███
-  ▄███         ▄███▄▄▄▄██▀   ███    ███   ███    ███  ▄███▄▄▄▄███▄▄ ███    ███  ███
- ▀▀███ ████▄  ▀▀███▀▀▀▀▀   ▀███████████ ▀█████████▀  ▀▀███▀▀▀▀███▀  ███    ███  ███
-   ███    ███ ▀███████████   ███    ███   ███          ███    ███   ███    ███  ███
-   ███    ███   ███    ███   ███    ███   ███          ███    ███   ███  ▀ ███  ███▌    ▄
-   ████████▀    ███    ███   ███    █▀   ▄████▀        ███    █▀     ▀██████▀▄█ █████▄▄██
-                ███    ███                                                      ▀
-</strong>
-      </div>
-      <p style="text-align: center;">A GraphQL server implementation for Ruby</p>
-
-      <div class="grid -between">
-        <div class="cell -3of12">
-          <h3>Guides</h3>
-          <ul>
-            <li><a href="/graphql-ruby/">Getting Started</a></li>
-            <li>
-              <strong>Schema</strong>
-              <ul>
-                <li><a href="/graphql-ruby/schema/types_and_fields">Types and Fields</a></li>
-                <li><a href="/graphql-ruby/schema/generators">Generators</a></li>
-                <li><a href="/graphql-ruby/schema/configuration_options">Configuration Options</a></li>
-                <li><a href="/graphql-ruby/schema/code_reuse">Code Reuse</a></li>
-                <li><a href="/graphql-ruby/schema/instrumentation">Instrumentation</a></li>
-                <li><a href="/graphql-ruby/schema/lazy_execution">Lazy Execution</a></li>
-                <li><a href="/graphql-ruby/schema/limiting_visibility">Limiting Visibility</a></li>
-                <li><a href="/graphql-ruby/schema/testing">Testing</a></li>
-              </ul>
-            </li>
-            <li>
-              <strong>Queries</strong>
-              <ul>
-                <li><a href="/graphql-ruby/queries/executing_queries">Executing Queries</a></li>
-                <li><a href="/graphql-ruby/queries/authorization">Authorization</a></li>
-                <li><a href="/graphql-ruby/queries/security">Security</a></li>
-                <li><a href="/graphql-ruby/queries/error_handling">Error Handling</a></li>
-                <li><a href="/graphql-ruby/queries/phases_of_execution">Phases of Execution</a></li>
-              </ul>
-            </li>
-            <li>
-              <strong>Relay</strong>
-              <ul>
-                <li><a href="/graphql-ruby/relay/object_identification">Object Identification</a></li>
-                <li><a href="/graphql-ruby/relay/connections">Connections</a></li>
-                <li><a href="/graphql-ruby/relay/mutations">Mutations</a></li>
-              </ul>
-            </li>
-            <li>
-              <strong>GraphQL::Pro</strong>
-              <ul>
-                <li><a href="http://graphql.pro">GraphQL::Pro Home</a></li>
-                <li><a href="/graphql-ruby/pro/installation">Installation & Updates</a></li>
-                <li><a href="/graphql-ruby/pro/authorization">Authorization</a></li>
-                <li><a href="/graphql-ruby/pro/persisted_queries">Persisted Queries</a></li>
-                <li><a href="/graphql-ruby/pro/monitoring">Monitoring</a></li>
-                <li><a href="/graphql-ruby/pro/cursors">Stable Cursors<br/>for ActiveRecord</a></li>
-                <li><a href="/graphql-ruby/pro/encoders">Encrypted, Versioned<br/>Cursors and Ids</a></li>
-              </ul>
-            </li>
-            <li><a href="/graphql-ruby/related_projects">Related Projects</a></li>
-          </ul>
-          <h3><a href="https://tinyletter.com/graphql-ruby">GraphQL Ruby Newsletter</a></h3>
-          <h3><a href="http://www.rubydoc.info/github/rmosolgo/graphql-ruby">API Docs</a></h3>
-          <h3><a href="https://github.com/rmosolgo/graphql-ruby">Source Code</a></h3>
+  <body>
+    <div class="header">
+      <div class="header-container">
+        <div class="nav">
+          <a href="/" class="img-link">
+            <img src="/graphql-ruby.png" alt="GraphQL Ruby Logo" />
+          </a>
+          <a href="/getting_started">Get Started</a>
+          <a href="/guides">Guides</a>
+          <a href="/api-doc/1.11.6/">API</a>
+          <a href="https://tinyletter.com/graphql-ruby">Newsletter</a>
+          <a href="https://github.com/rmosolgo/graphql-ruby">Source Code</a>
+          <a href="https://graphql.pro">Upgrade to Pro</a>
+          <input
+            class="search-input"
+            onkeyup="GraphQLRubySearch.run(this)"
+            type="text"
+            placeholder="Search the docs..."
+          />
         </div>
-        <div class="cell -9of12">
-          <h1 class="guide-header">Schema — Generators</h1>
-          <p>If you’re using GraphQL with Ruby on Rails, you can use generators to:</p>
+      </div>
+      <div class="search-results-container">
+        <div id="search-results">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <p class="breadcrumb">
+  <a href="/">GraphQL</a>
+  &raquo; <a href="/guides">Guides</a>
+   &raquo; <a href="/guides#schema-guides">Schema</a>
+  &raquo; Generators
+</p>
+
+
+<h1 class="guide-header">Generators</h1>
+<div class="guide-container">
+  <p>If you’re using GraphQL with Ruby on Rails, you can use generators to:</p>
 
 <ul>
-  <li><a href="#graphql-install">setup GraphQL</a>, including <a href="https://github.com/graphql/graphiql">GraphiQL</a>, <a href="https://github.com/Shopify/graphql-batch">GraphQL::Batch</a>, and <a href="https://facebook.github.io/relay/">Relay</a></li>
+  <li><a href="#graphqlinstall">setup GraphQL</a>, including <a href="https://github.com/graphql/graphiql">GraphiQL</a>, <a href="https://github.com/Shopify/graphql-batch">GraphQL::Batch</a>, and <a href="https://facebook.github.io/relay/">Relay</a></li>
   <li><a href="#scaffolding-types">scaffold types</a></li>
-  <li><a href="#scaffolding-functions">scaffold functions</a></li>
   <li><a href="#scaffolding-mutations">scaffold Relay mutations</a></li>
   <li><a href="#scaffolding-loaders">scaffold GraphQL::Batch loaders</a></li>
 </ul>
 
 <h2 id="graphqlinstall">graphql:install</h2>
 
-<p>You can add GraphQL to a Rails app with <code class="highlighter-rouge">graphql:install</code>:</p>
+<p>You can add GraphQL to a Rails app with <code class="language-plaintext highlighter-rouge">graphql:install</code>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>rails generate graphql:install
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails generate graphql:install
+</code></pre></div></div>
 
 <p>This will:</p>
 
 <ul>
-  <li>Set up a folder structure in <code class="highlighter-rouge">app/graphql/</code></li>
+  <li>Set up a folder structure in <code class="language-plaintext highlighter-rouge">app/graphql/</code></li>
   <li>Add schema definition</li>
-  <li>Add a <code class="highlighter-rouge">Query</code> type definition</li>
+  <li>Add base type classes</li>
+  <li>Add a <code class="language-plaintext highlighter-rouge">Query</code> type definition</li>
+  <li>Add a <code class="language-plaintext highlighter-rouge">Mutation</code> type definition with a base mutation class</li>
   <li>Add a route and controller for executing queries</li>
-  <li>Install <a href="https://github.com/rmosolgo/graphiql-rails"><code class="highlighter-rouge">graphiql-rails</code></a></li>
+  <li>Install <a href="https://github.com/rmosolgo/graphiql-rails"><code class="language-plaintext highlighter-rouge">graphiql-rails</code></a></li>
 </ul>
 
 <p>After installing you can see your new schema by:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">bundle install</code></li>
-  <li><code class="highlighter-rouge">rails server</code></li>
-  <li>Open <code class="highlighter-rouge">localhost:3000/graphiql</code></li>
+  <li><code class="language-plaintext highlighter-rouge">bundle install</code></li>
+  <li><code class="language-plaintext highlighter-rouge">rails server</code></li>
+  <li>Open <code class="language-plaintext highlighter-rouge">localhost:3000/graphiql</code></li>
 </ul>
 
 <h3 id="options">Options</h3>
 
 <ul>
-  <li><code class="highlighter-rouge">--relay</code> will add <a href="https://facebook.github.io/relay/">Relay</a>-specific code to your schema</li>
-  <li><code class="highlighter-rouge">--batch</code> will add <a href="https://github.com/Shopify/graphql-batch">GraphQL::Batch</a> to your gemfile and include the setup in your schema</li>
-  <li><code class="highlighter-rouge">--no-graphiql</code> will exclude <code class="highlighter-rouge">graphiql-rails</code> from the setup</li>
-  <li><code class="highlighter-rouge">--schema=MySchemaName</code> will be used for naming the schema (default is <code class="highlighter-rouge">#{app_name}Schema</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">--relay</code> will add <a href="https://facebook.github.io/relay/">Relay</a>-specific code to your schema</li>
+  <li><code class="language-plaintext highlighter-rouge">--batch</code> will add <a href="https://github.com/Shopify/graphql-batch">GraphQL::Batch</a> to your gemfile and include the setup in your schema</li>
+  <li><code class="language-plaintext highlighter-rouge">--playground</code> will include <code class="language-plaintext highlighter-rouge">graphql_playground-rails</code> in the setup (mounted at <code class="language-plaintext highlighter-rouge">/playground</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">--no-graphiql</code> will exclude <code class="language-plaintext highlighter-rouge">graphiql-rails</code> from the setup</li>
+  <li><code class="language-plaintext highlighter-rouge">--schema=MySchemaName</code> will be used for naming the schema (default is <code class="language-plaintext highlighter-rouge">#{app_name}Schema</code>)</li>
 </ul>
 
 <h2 id="scaffolding-types">Scaffolding Types</h2>
 
-<p>Several generators will add GraphQL types to your project. Run them with <code class="highlighter-rouge">-h</code> to see the options:</p>
+<p>Several generators will add GraphQL types to your project. Run them with <code class="language-plaintext highlighter-rouge">-h</code> to see the options:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">rails g graphql:object</code></li>
-  <li><code class="highlighter-rouge">rails g graphql:interface</code></li>
-  <li><code class="highlighter-rouge">rails g graphql:union</code></li>
-  <li><code class="highlighter-rouge">rails g graphql:enum</code></li>
+  <li><code class="language-plaintext highlighter-rouge">rails g graphql:object</code></li>
+  <li><code class="language-plaintext highlighter-rouge">rails g graphql:interface</code></li>
+  <li><code class="language-plaintext highlighter-rouge">rails g graphql:union</code></li>
+  <li><code class="language-plaintext highlighter-rouge">rails g graphql:enum</code></li>
+  <li><code class="language-plaintext highlighter-rouge">rails g graphql:scalar</code></li>
 </ul>
-
-<h2 id="scaffolding-functions">Scaffolding Functions</h2>
-
-<p>You can prepare a <a href="http://www.rubydoc.info/gems/graphql/GraphQL/Function" target="_blank"><code>GraphQL::Function</code></a> with</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>rails g graphql:function #{function_name}
-</code></pre>
-</div>
 
 <h2 id="scaffolding-mutations">Scaffolding Mutations</h2>
 
-<p>You can prepare a Relay mutation with</p>
+<p>You can prepare a Relay Classic mutation with</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>rails g graphql:mutation #{mutation_name}
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails g graphql:mutation #{mutation_name}
+</code></pre></div></div>
 
 <h2 id="scaffolding-loaders">Scaffolding Loaders</h2>
 
 <p>You can prepare a GraphQL::Batch loader with</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>rails g graphql:loader
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails g graphql:loader
+</code></pre></div></div>
 
-        </div>
-      </div>
+</div>
+<p class="guide-footer">
+  Suggestion, improvement, or correction?
+  <a href="https://github.com/rmosolgo/graphql-ruby/edit/master/guides/schema/generators.md">Edit this file</a> or
+  <a href="https://github.com/rmosolgo/graphql-ruby/issues/new?title=Guide: Generators">report an issue</a>.
+</p>
+<script>
+  // Find headers with IDs and wrap their text in `<a href=></a>`
+  // That way people can easily copy the link.
+  var headers = document.querySelectorAll("h1, h2, h3, h4, h5");
+  var header, idText, headerLink;
+  for (var i = 0; i < headers.length; i++) {
+    header = headers[i];
+    idText = header.id;
+    if (idText) {
+      headerLink = document.createElement("a");
+      headerLink.href = "#" + idText;
+      headerLink.textContent = header.textContent;
+      header.textContent = "";
+      header.appendChild(headerLink);
+    }
+  }
+</script>
+
     </div>
-    <script>
-      // Find headers with IDs and wrap their text in `<a href=></a>`
-      // That way people can easily copy the link.
-      var headers = document.querySelectorAll("h1, h2, h3, h4, h5");
-      var header, idText, headerLink;
-      for (var i = 0; i < headers.length; i++) {
-        header = headers[i];
-        idText = header.id;
-        if (idText) {
-          headerLink = document.createElement("a");
-          headerLink.href = "#" + idText;
-          headerLink.textContent = header.textContent;
-          header.textContent = "";
-          header.appendChild(headerLink);
-        }
-      }
-    </script>
+    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js"></script>
+    <script src="/js/search.js"></script>
   </body>
 </html>

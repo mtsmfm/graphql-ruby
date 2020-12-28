@@ -2,103 +2,58 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>GraphQL Ruby - Schema — Lazy Execution</title>
-    <link rel="stylesheet" href="/graphql-ruby/css/main.css">
-    <link rel="icon" href="/graphql-ruby/graphql-ruby-icon.png">
-    <meta name="generator">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+      <title>GraphQL - Lazy Execution</title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="icon" href="/graphql-ruby-icon.png">
   </head>
-  <body class="hack">
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-19264608-11', 'auto');
-      ga('send', 'pageview');
-    </script>
-    <div class="container">
-      <div style="display: flex; justify-content: center;">
-<strong style="white-space: pre; line-height: 1.1em; display: inline-block; font-size: 8px;">
-    ▄██████▄     ▄████████    ▄████████    ▄███████▄    ▄█    █▄    ████████▄    ▄█
-   ███    ███   ███    ███   ███    ███   ███    ███   ███    ███   ███    ███  ███
-   ███    █▀    ███    ███   ███    ███   ███    ███   ███    ███   ███    ███  ███
-  ▄███         ▄███▄▄▄▄██▀   ███    ███   ███    ███  ▄███▄▄▄▄███▄▄ ███    ███  ███
- ▀▀███ ████▄  ▀▀███▀▀▀▀▀   ▀███████████ ▀█████████▀  ▀▀███▀▀▀▀███▀  ███    ███  ███
-   ███    ███ ▀███████████   ███    ███   ███          ███    ███   ███    ███  ███
-   ███    ███   ███    ███   ███    ███   ███          ███    ███   ███  ▀ ███  ███▌    ▄
-   ████████▀    ███    ███   ███    █▀   ▄████▀        ███    █▀     ▀██████▀▄█ █████▄▄██
-                ███    ███                                                      ▀
-</strong>
-      </div>
-      <p style="text-align: center;">A GraphQL server implementation for Ruby</p>
-
-      <div class="grid -between">
-        <div class="cell -3of12">
-          <h3>Guides</h3>
-          <ul>
-            <li><a href="/graphql-ruby/">Getting Started</a></li>
-            <li>
-              <strong>Schema</strong>
-              <ul>
-                <li><a href="/graphql-ruby/schema/types_and_fields">Types and Fields</a></li>
-                <li><a href="/graphql-ruby/schema/generators">Generators</a></li>
-                <li><a href="/graphql-ruby/schema/configuration_options">Configuration Options</a></li>
-                <li><a href="/graphql-ruby/schema/code_reuse">Code Reuse</a></li>
-                <li><a href="/graphql-ruby/schema/instrumentation">Instrumentation</a></li>
-                <li><a href="/graphql-ruby/schema/lazy_execution">Lazy Execution</a></li>
-                <li><a href="/graphql-ruby/schema/limiting_visibility">Limiting Visibility</a></li>
-                <li><a href="/graphql-ruby/schema/testing">Testing</a></li>
-              </ul>
-            </li>
-            <li>
-              <strong>Queries</strong>
-              <ul>
-                <li><a href="/graphql-ruby/queries/executing_queries">Executing Queries</a></li>
-                <li><a href="/graphql-ruby/queries/authorization">Authorization</a></li>
-                <li><a href="/graphql-ruby/queries/security">Security</a></li>
-                <li><a href="/graphql-ruby/queries/error_handling">Error Handling</a></li>
-                <li><a href="/graphql-ruby/queries/phases_of_execution">Phases of Execution</a></li>
-              </ul>
-            </li>
-            <li>
-              <strong>Relay</strong>
-              <ul>
-                <li><a href="/graphql-ruby/relay/object_identification">Object Identification</a></li>
-                <li><a href="/graphql-ruby/relay/connections">Connections</a></li>
-                <li><a href="/graphql-ruby/relay/mutations">Mutations</a></li>
-              </ul>
-            </li>
-            <li>
-              <strong>GraphQL::Pro</strong>
-              <ul>
-                <li><a href="http://graphql.pro">GraphQL::Pro Home</a></li>
-                <li><a href="/graphql-ruby/pro/installation">Installation & Updates</a></li>
-                <li><a href="/graphql-ruby/pro/authorization">Authorization</a></li>
-                <li><a href="/graphql-ruby/pro/persisted_queries">Persisted Queries</a></li>
-                <li><a href="/graphql-ruby/pro/monitoring">Monitoring</a></li>
-                <li><a href="/graphql-ruby/pro/cursors">Stable Cursors<br/>for ActiveRecord</a></li>
-                <li><a href="/graphql-ruby/pro/encoders">Encrypted, Versioned<br/>Cursors and Ids</a></li>
-              </ul>
-            </li>
-            <li><a href="/graphql-ruby/related_projects">Related Projects</a></li>
-          </ul>
-          <h3><a href="https://tinyletter.com/graphql-ruby">GraphQL Ruby Newsletter</a></h3>
-          <h3><a href="http://www.rubydoc.info/github/rmosolgo/graphql-ruby">API Docs</a></h3>
-          <h3><a href="https://github.com/rmosolgo/graphql-ruby">Source Code</a></h3>
+  <body>
+    <div class="header">
+      <div class="header-container">
+        <div class="nav">
+          <a href="/" class="img-link">
+            <img src="/graphql-ruby.png" alt="GraphQL Ruby Logo" />
+          </a>
+          <a href="/getting_started">Get Started</a>
+          <a href="/guides">Guides</a>
+          <a href="/api-doc/1.11.6/">API</a>
+          <a href="https://tinyletter.com/graphql-ruby">Newsletter</a>
+          <a href="https://github.com/rmosolgo/graphql-ruby">Source Code</a>
+          <a href="https://graphql.pro">Upgrade to Pro</a>
+          <input
+            class="search-input"
+            onkeyup="GraphQLRubySearch.run(this)"
+            type="text"
+            placeholder="Search the docs..."
+          />
         </div>
-        <div class="cell -9of12">
-          <h1 class="guide-header">Schema — Lazy Execution</h1>
-          <p>With lazy execution, you can optimize access to external services (such as databases) by making batched calls. Building a lazy loader has three steps:</p>
+      </div>
+      <div class="search-results-container">
+        <div id="search-results">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <p class="breadcrumb">
+  <a href="/">GraphQL</a>
+  &raquo; <a href="/guides">Guides</a>
+   &raquo; <a href="/guides#schema-guides">Schema</a>
+  &raquo; Lazy Execution
+</p>
+
+
+<h1 class="guide-header">Lazy Execution</h1>
+<div class="guide-container">
+  <p>With lazy execution, you can optimize access to external services (such as databases) by making batched calls. Building a lazy loader has three steps:</p>
 
 <ul>
   <li>Define a lazy-loading class with <em>one</em> method for loading &amp; returning a value</li>
-  <li>Connect it to your schema with <a href="http://www.rubydoc.info/gems/graphql/GraphQL/Schema#lazy_resolve-instance_method" target="_blank"><code>GraphQL::Schema#lazy_resolve</code></a></li>
-  <li>In <code class="highlighter-rouge">resolve</code> functions, return instances of the lazy-loading class</li>
+  <li>Connect it to your schema with <a href="/api-doc/1.11.6/GraphQL/Schema#lazy_resolve-instance_method" target="_blank" title="API docs for GraphQL::Schema#lazy_resolve"><code>GraphQL::Schema#lazy_resolve</code></a></li>
+  <li>In <code class="language-plaintext highlighter-rouge">resolve</code> functions, return instances of the lazy-loading class</li>
 </ul>
-
-<p><a href="https://github.com/shopify/graphql-batch"><code class="highlighter-rouge">graphql-batch</code></a> provides a powerful, flexible toolkit for lazy resolution with GraphQL.</p>
-
-<p>Lazy resolution can be <a href="/graphql-ruby/schema/instrumentation">instrumented</a>.</p>
 
 <h2 id="example-batched-find">Example: Batched Find</h2>
 
@@ -108,7 +63,7 @@
   <li>Lazy-loading class which finds models by ID.</li>
 </ol>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">LazyFindPerson</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">LazyFindPerson</span>
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">query_ctx</span><span class="p">,</span> <span class="n">person_id</span><span class="p">)</span>
     <span class="vi">@person_id</span> <span class="o">=</span> <span class="n">person_id</span>
     <span class="c1"># Initialize the loading state for this query,</span>
@@ -140,64 +95,76 @@
       <span class="vi">@lazy_state</span><span class="p">[</span><span class="ss">:loaded_ids</span><span class="p">][</span><span class="vi">@person_id</span><span class="p">]</span>
     <span class="k">end</span>
   <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ol>
   <li>Connect the lazy resolve method</li>
 </ol>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="no">MySchema</span> <span class="o">=</span> <span class="no">GraphQL</span><span class="o">::</span><span class="no">Schema</span><span class="p">.</span><span class="nf">define</span> <span class="k">do</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MySchema</span> <span class="o">&lt;</span> <span class="no">GraphQL</span><span class="o">::</span><span class="no">Schema</span>
   <span class="c1"># ...</span>
   <span class="n">lazy_resolve</span><span class="p">(</span><span class="no">LazyFindPerson</span><span class="p">,</span> <span class="ss">:person</span><span class="p">)</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ol>
-  <li>Return lazy objects from <code class="highlighter-rouge">resolve</code></li>
+  <li>Return lazy objects from <code class="language-plaintext highlighter-rouge">resolve</code></li>
 </ol>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">field</span> <span class="ss">:author</span><span class="p">,</span> <span class="no">PersonType</span> <span class="k">do</span>
-  <span class="n">resolve</span> <span class="o">-&gt;</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">ctx</span><span class="p">)</span> <span class="p">{</span>
-    <span class="no">LazyFindPerson</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">obj</span><span class="p">.</span><span class="nf">author_id</span><span class="p">)</span>
-  <span class="p">}</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">field</span> <span class="ss">:author</span><span class="p">,</span> <span class="no">PersonType</span><span class="p">,</span> <span class="ss">null: </span><span class="kp">true</span>
+
+<span class="k">def</span> <span class="nf">author</span>
+  <span class="no">LazyFindPerson</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">object</span><span class="p">.</span><span class="nf">author_id</span><span class="p">)</span>
 <span class="k">end</span>
-</code></pre>
+</code></pre></div></div>
+
+<p>Now, calls to <code class="language-plaintext highlighter-rouge">author</code> will use batched database access. For example, this query:</p>
+
+<div class="language-graphql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="n">p1</span><span class="p">:</span><span class="w"> </span><span class="n">post</span><span class="p">(</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">author</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="n">p2</span><span class="p">:</span><span class="w"> </span><span class="n">post</span><span class="p">(</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">author</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
+  </span><span class="n">p3</span><span class="p">:</span><span class="w"> </span><span class="n">post</span><span class="p">(</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">author</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Will only make one query to load the <code class="language-plaintext highlighter-rouge">author</code> values.</p>
+
+<h2 id="gems-for-batching">Gems for batching</h2>
+
+<p>The example above is simple and has some shortcomings. Consider the following gems for a robust solution to batched resolution:</p>
+
+<ul>
+  <li><a href="https://github.com/shopify/graphql-batch"><code class="language-plaintext highlighter-rouge">graphql-batch</code></a> provides a powerful, flexible toolkit for lazy resolution with GraphQL.</li>
+  <li><a href="https://github.com/sheerun/dataloader"><code class="language-plaintext highlighter-rouge">dataloader</code></a> is more general promise-based utility for batching queries within the same thread.</li>
+  <li><a href="https://github.com/exAspArk/batch-loader"><code class="language-plaintext highlighter-rouge">batch-loader</code></a> works with any Ruby code including GraphQL, no extra dependencies or primitives.</li>
+</ul>
+
 </div>
+<p class="guide-footer">
+  Suggestion, improvement, or correction?
+  <a href="https://github.com/rmosolgo/graphql-ruby/edit/master/guides/schema/lazy_execution.md">Edit this file</a> or
+  <a href="https://github.com/rmosolgo/graphql-ruby/issues/new?title=Guide: Lazy Execution">report an issue</a>.
+</p>
+<script>
+  // Find headers with IDs and wrap their text in `<a href=></a>`
+  // That way people can easily copy the link.
+  var headers = document.querySelectorAll("h1, h2, h3, h4, h5");
+  var header, idText, headerLink;
+  for (var i = 0; i < headers.length; i++) {
+    header = headers[i];
+    idText = header.id;
+    if (idText) {
+      headerLink = document.createElement("a");
+      headerLink.href = "#" + idText;
+      headerLink.textContent = header.textContent;
+      header.textContent = "";
+      header.appendChild(headerLink);
+    }
+  }
+</script>
 
-<p>Now, calls to <code class="highlighter-rouge">author</code> will use batched database access. For example, this query:</p>
-
-<pre><code class="language-graphql">{
-  p1: post(id: 1) { author { name } }
-  p2: post(id: 2) { author { name } }
-  p3: post(id: 3) { author { name } }
-}
-</code></pre>
-
-<p>Will only make one query to load the <code class="highlighter-rouge">author</code> values.</p>
-
-<p>The example above is simple and has some shortcomings. Consider the <code class="highlighter-rouge">graphql-batch</code> gem for a robust solution to batched resolution.</p>
-
-        </div>
-      </div>
     </div>
-    <script>
-      // Find headers with IDs and wrap their text in `<a href=></a>`
-      // That way people can easily copy the link.
-      var headers = document.querySelectorAll("h1, h2, h3, h4, h5");
-      var header, idText, headerLink;
-      for (var i = 0; i < headers.length; i++) {
-        header = headers[i];
-        idText = header.id;
-        if (idText) {
-          headerLink = document.createElement("a");
-          headerLink.href = "#" + idText;
-          headerLink.textContent = header.textContent;
-          header.textContent = "";
-          header.appendChild(headerLink);
-        }
-      }
-    </script>
+    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js"></script>
+    <script src="/js/search.js"></script>
   </body>
 </html>
